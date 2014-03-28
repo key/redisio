@@ -15,7 +15,7 @@
 REDISNAME=<%= @name %>
 REDISPORT=<%= @port %>
 <% case @platform %>
-<% when 'ubuntu','debian','fedora' %>
+<% when 'ubuntu','debian','fedora','raspbian' %>
 EXEC="sudo -u <%= @user %> <%= File.join(@bin_path, 'redis-server') %> <%= @configdir %>/${REDISNAME}.conf"
 <% else %> 
 EXEC="runuser <%= @user %> -c \"<%= File.join(@bin_path, 'redis-server') %> <%= @configdir %>/${REDISNAME}.conf\""
